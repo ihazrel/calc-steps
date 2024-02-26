@@ -13,45 +13,49 @@ class CalculatorOne extends StatelessWidget {
       height: 500,
       child: Column(
         children: [
+          //step 1
           StepsButton(
             text: "Lorum Ipsum 1",
             onPressed: onTest,
             onCurrent: true,
             isRounded: false,
-            firstStep: true,
-            lastStep: false,
+            isFirstLast: 1,
           ),
+
+          //step 2
           StepsButton(
             text: "Lorum Ipsum 2",
             onPressed: onTest,
             onCurrent: false,
             isRounded: false,
-            firstStep: false,
-            lastStep: false,
+            isFirstLast: 0,
           ),
+
+          //step 3
           StepsButton(
             text: "Lorum Ipsum 3",
             onPressed: onTest,
             onCurrent: false,
             isRounded: false,
-            firstStep: false,
-            lastStep: false,
+            isFirstLast: 0,
           ),
+
+          //step 4
           StepsButton(
             text: "Lorum Ipsum 4",
             onPressed: onTest,
             onCurrent: false,
             isRounded: false,
-            firstStep: false,
-            lastStep: false,
+            isFirstLast: 0,
           ),
+
+          //step 5
           StepsButton(
             text: "Lorum Ipsum 5",
             onPressed: onTest,
             onCurrent: false,
             isRounded: false,
-            firstStep: false,
-            lastStep: true,
+            isFirstLast: 2,
           ),
         ],
       ),

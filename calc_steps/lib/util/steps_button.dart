@@ -7,8 +7,7 @@ class StepsButton extends StatelessWidget {
   VoidCallback onPressed;
   final bool onCurrent;
   final bool isRounded;
-  final bool firstStep;
-  final bool lastStep;
+  final int isFirstLast;
 
   StepsButton({
     super.key,
@@ -16,18 +15,19 @@ class StepsButton extends StatelessWidget {
     required this.onPressed,
     required this.onCurrent,
     required this.isRounded,
-    required this.firstStep,
-    required this.lastStep,
+    required this.isFirstLast,
   });
 
   @override
   Widget build(BuildContext context) {
     Color buttonColor = onCurrent ? Color(0xFFD1A7A0) : Color(0xFFE8E8E8);
-    BorderRadius round = firstStep
-        ? BorderRadius.only(topLeft: Radius.circular(32))
-        : lastStep
-            ? BorderRadius.only(bottomLeft: Radius.circular(32))
-            : BorderRadius.circular(0);
+    BorderRadius round;
+    if (isFirstLast == 1)
+      round = BorderRadius.only(topLeft: Radius.circular(32));
+    else if (isFirstLast == 2)
+      round = BorderRadius.only(bottomLeft: Radius.circular(32));
+    else
+      round = BorderRadius.zero;
 
     return Expanded(
       child: MaterialButton(

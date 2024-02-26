@@ -1,8 +1,6 @@
-import 'package:calc_steps/pages/steps_background.dart';
-import 'package:calc_steps/util/steps_button.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:calc_steps/pages/calculator_1.dart';
+import 'package:calc_steps/util/steps_background.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 String dropdownvalue = "FX570MS";
 var list = ['FX570MS', 'FX570Ex'];
@@ -24,30 +22,40 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
-            DropdownButton(
-              borderRadius: BorderRadius.circular(10),
-              itemHeight: 50,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Color(0xFFE8E8E8),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: DropdownButton(
+                  borderRadius: BorderRadius.circular(10),
+                  itemHeight: 50,
 
-              //initial value
-              value: dropdownvalue,
+                  //initial value
+                  value: dropdownvalue,
 
-              //downarrow icon
-              icon: Icon(Icons.keyboard_arrow_down),
+                  //downarrow icon
+                  icon: Icon(Icons.keyboard_arrow_down),
 
-              //array list of item
-              items: list.map(
-                (String list) {
-                  return DropdownMenuItem(
-                    value: list,
-                    child: Text(list),
-                  );
-                },
-              ).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdownvalue = newValue!;
-                });
-              },
+                  //array list of item
+                  items: list.map(
+                    (String list) {
+                      return DropdownMenuItem(
+                        value: list,
+                        child: Text(list),
+                      );
+                    },
+                  ).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  },
+                ),
+              ),
             ),
             Stack(
               children: <Widget>[
@@ -55,22 +63,7 @@ class _HomePageState extends State<HomePage> {
                 StepsBackground(),
 
                 //steps
-                Column(
-                  children: [
-                    StepsButton(
-                      text: "Lorum Ipsum 1",
-                      onPressed: onTest,
-                      onCurrent: true,
-                      isRounded: true,
-                    ),
-                    StepsButton(
-                      text: "Lorum Ipsum 2",
-                      onPressed: onTest,
-                      onCurrent: false,
-                      isRounded: false,
-                    ),
-                  ],
-                )
+                CalculatorOne(),
               ],
             ),
           ],
