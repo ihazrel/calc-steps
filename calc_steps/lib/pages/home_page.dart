@@ -22,6 +22,8 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
+            //calculator dropdown menu
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -57,6 +59,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
+            //calculator steps container
+
             Stack(
               children: <Widget>[
                 //background
