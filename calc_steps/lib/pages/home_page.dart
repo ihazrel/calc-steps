@@ -55,31 +55,22 @@ class _HomePageState extends State<HomePage> {
                 StepsBackground(),
 
                 //steps
-                Table(children: [
-                  TableRow(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          //step 1
-                          StepsButton(text: "Lorum Ipsum 1", onPressed: onTest),
-
-                          //step 2
-                          StepsButton(text: "Lorum Ipsum 2", onPressed: onTest),
-
-                          //step 3
-                          StepsButton(text: "Lorum Ipsum 3", onPressed: onTest),
-
-                          //step 4
-                          StepsButton(text: "Lorum Ipsum 4", onPressed: onTest),
-
-                          //step 5
-                          StepsButton(text: "Lorum Ipsum 5", onPressed: onTest),
-                        ],
-                      ),
-                    ],
-                  ),
-                ]),
+                Column(
+                  children: [
+                    StepsButton(
+                      text: "Lorum Ipsum 1",
+                      onPressed: onTest,
+                      onCurrent: true,
+                      isRounded: true,
+                    ),
+                    StepsButton(
+                      text: "Lorum Ipsum 2",
+                      onPressed: onTest,
+                      onCurrent: false,
+                      isRounded: false,
+                    ),
+                  ],
+                )
               ],
             ),
           ],
