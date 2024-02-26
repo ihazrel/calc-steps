@@ -5,13 +5,16 @@ class StepsBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xFFD1A7A0),
-        borderRadius: BorderRadius.circular(32),
-      ),
+    return SizedBox(
       height: 500,
-      width: 1028,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFFD1A7A0),
+          borderRadius: BorderRadius.circular(32),
+        ),
+        height: 500,
+        width: 1028,
+      ),
     );
   }
 }
