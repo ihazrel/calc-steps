@@ -34,7 +34,7 @@ class StepsBackground extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32),
                     child: Image.asset(
-                      'image/calc.png',
+                      'image/570ex/factorize/1.png',
                       width: 250,
                     ),
                   ),

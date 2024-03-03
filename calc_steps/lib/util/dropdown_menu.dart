@@ -10,13 +10,14 @@ class DropdownCalculator extends StatefulWidget {
 }
 
 class _DropdownCalculatorState extends State<DropdownCalculator> {
-  String calculatorDropdownValue = "FX570MS";
-  var calculatorList = ['FX570MS', 'FX570Ex'];
+  String calculatorDropdownValue = "FX570Ex";
+  var calculatorList = ['FX570Ex', 'FX570MS'];
 
   String formulaDropdownValue = "Factorization";
   var formulaList = ['Factorization', 'Power Of'];
 
   int formulaIndex = 0;
+  int calculatorIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +50,7 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                 onChanged: (String? newValue) {
                   setState(() {
                     calculatorDropdownValue = newValue!;
+                    calculatorIndex = calculatorList.indexOf(newValue);
                   });
                 },
               ),
