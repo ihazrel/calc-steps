@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DropdownCalculator extends StatefulWidget {
-  DropdownCalculator({super.key});
+  final void Function(int)? onIndexChanged; // Define the callback
+
+  DropdownCalculator({Key? key, this.onIndexChanged}) : super(key: key);
 
   @override
   State<DropdownCalculator> createState() => _DropdownCalculatorState();
@@ -11,8 +13,10 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
   String calculatorDropdownValue = "FX570MS";
   var calculatorList = ['FX570MS', 'FX570Ex'];
 
-  String formulaDropdownValue = "Power Of";
-  var formulaList = ['Power Of'];
+  String formulaDropdownValue = "Factorization";
+  var formulaList = ['Factorization', 'Power Of'];
+
+  int formulaIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +26,18 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
         width: 750,
         child: Row(
           children: [
-            // calculator dropdown value
+            // calculator dropdown menu
             Container(
               padding: EdgeInsets.all(4.0),
               decoration: BoxDecoration(
-                  color: Color(0xFFE8E8E8),
-                  borderRadius: BorderRadius.circular(20)),
+                color: Color(0xFFE8E8E8),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: DropdownButton(
                 borderRadius: BorderRadius.circular(10),
                 itemHeight: 50,
-
-                //initial value
                 value: calculatorDropdownValue,
-
-                //downarrow icon
                 icon: Icon(Icons.keyboard_arrow_down),
-
-                //array list of item
                 items: calculatorList.map(
                   (String list) {
                     return DropdownMenuItem(
@@ -56,23 +55,18 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
             ),
             Spacer(),
 
-            //formula dropdown menu
+            // formula dropdown menu
             Container(
               padding: EdgeInsets.all(4.0),
               decoration: BoxDecoration(
-                  color: Color(0xFFE8E8E8),
-                  borderRadius: BorderRadius.circular(20)),
+                color: Color(0xFFE8E8E8),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: DropdownButton(
                 borderRadius: BorderRadius.circular(10),
                 itemHeight: 50,
-
-                //initial value
                 value: formulaDropdownValue,
-
-                //downarrow icon
                 icon: Icon(Icons.keyboard_arrow_down),
-
-                //array list of item
                 items: formulaList.map(
                   (String list) {
                     return DropdownMenuItem(
@@ -84,6 +78,10 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                 onChanged: (String? newValue) {
                   setState(() {
                     formulaDropdownValue = newValue!;
+                    formulaIndex = formulaList.indexOf(newValue);
+                    if (widget.onIndexChanged != null) {
+                      widget.onIndexChanged!(formulaIndex);
+                    }
                   });
                 },
               ),

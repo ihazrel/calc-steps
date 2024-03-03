@@ -10,8 +10,8 @@ class CalculatorTwo extends StatefulWidget {
 }
 
 class _CalculatorTwoState extends State<CalculatorTwo> {
-  var clickedList = [true, false, false, false, false];
-  List<int> besideList = [0, 1, 0, 0, 0];
+  var clickedList = [true, false, false];
+  List<int> besideList = [0, 1, 0];
 
   void updateBesideList(int i) {
     // Update besideList based on the index i
@@ -24,7 +24,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
     // Update besideList based on the clicked index i
     besideList[i] = 0;
 
-    if (i == 4) {
+    if (i == 2) {
       besideList[i - 1] = 2;
     } else if (i > 0) {
       besideList[i - 1] = 2;
@@ -61,7 +61,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
         children: [
           //step 1
           StepsButton(
-            text: "Lorum Ipsum 1",
+            text: "Ipsum Lorum 1",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -73,7 +73,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 2
           StepsButton(
-            text: "Lorum Ipsum 2",
+            text: "Ipsum Lorum 2",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -85,19 +85,19 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 3
           StepsButton(
-            text: "Lorum Ipsum 3",
+            text: "Ipsum Lorum 3",
             onPressed: () => setState(() {
               onClick(2);
             }),
             onCurrent: false,
             isClicked: clickedList[2],
-            isFirstLast: 0,
+            isFirstLast: 2,
             isBesideClicked: besideList[2],
           ),
 
-          //step 4
+          /* //step 4
           StepsButton(
-            text: "Lorum Ipsum 4",
+            text: "Ipsum Lorum 4",
             onPressed: () => setState(() {
               onClick(3);
             }),
@@ -109,7 +109,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 5
           StepsButton(
-            text: "Lorum Ipsum 5",
+            text: "Ipsum Lorum 5",
             onPressed: () => setState(() {
               onClick(4);
             }),
@@ -117,7 +117,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
             isClicked: clickedList[4],
             isFirstLast: 2,
             isBesideClicked: besideList[4],
-          ),
+          ), */
         ],
       ),
     );
