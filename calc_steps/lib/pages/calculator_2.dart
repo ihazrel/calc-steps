@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../util/steps_button.dart';
 
-class CalculatorOne extends StatefulWidget {
-  CalculatorOne({super.key});
+class CalculatorTwo extends StatefulWidget {
+  CalculatorTwo({super.key});
 
   @override
-  State<CalculatorOne> createState() => _CalculatorOneState();
+  State<CalculatorTwo> createState() => _CalculatorTwoState();
 }
 
-class _CalculatorOneState extends State<CalculatorOne> {
+class _CalculatorTwoState extends State<CalculatorTwo> {
   var clickedList = [true, false, false, false, false];
   List<int> besideList = [0, 1, 0, 0, 0];
 

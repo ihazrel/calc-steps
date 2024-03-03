@@ -6,18 +6,18 @@ class StepsButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
   final bool onCurrent;
-  final bool isRounded;
   final int isFirstLast;
   final bool isClicked;
+  final int isBesideClicked;
 
   StepsButton({
     super.key,
     required this.text,
     required this.onPressed,
     required this.onCurrent,
-    required this.isRounded,
-    required this.isFirstLast,
     required this.isClicked,
+    required this.isFirstLast,
+    required this.isBesideClicked,
   });
 
   @override
@@ -36,6 +36,12 @@ class StepsButton extends StatelessWidget {
       round = BorderRadius.only(bottomLeft: Radius.circular(32));
     else
       round = BorderRadius.zero;
+
+    // additional border properties
+    if (isBesideClicked == 1)
+      round = round.copyWith(topRight: Radius.circular(32));
+    else if (isBesideClicked == 2)
+      round = round.copyWith(bottomRight: Radius.circular(32));
 
     return Expanded(
       child: MaterialButton(
