@@ -10,8 +10,8 @@ class CalculatorOne extends StatefulWidget {
 }
 
 class _CalculatorOneState extends State<CalculatorOne> {
-  var clickedList = [true, false, false, false, false];
-  List<int> besideList = [0, 1, 0, 0, 0];
+  var clickedList = [true, false, false, false];
+  List<int> besideList = [0, 1, 0, 0];
 
   void updateBesideList(int i) {
     // Update besideList based on the index i
@@ -24,7 +24,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
     // Update besideList based on the clicked index i
     besideList[i] = 0;
 
-    if (i == 4) {
+    if (i == 3) {
       besideList[i - 1] = 2;
     } else if (i > 0) {
       besideList[i - 1] = 2;
@@ -103,20 +103,8 @@ class _CalculatorOneState extends State<CalculatorOne> {
             }),
             onCurrent: false,
             isClicked: clickedList[3],
-            isFirstLast: 0,
-            isBesideClicked: besideList[3],
-          ),
-
-          //step 5
-          StepsButton(
-            text: "Lorum Ipsum 5",
-            onPressed: () => setState(() {
-              onClick(4);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[4],
             isFirstLast: 2,
-            isBesideClicked: besideList[4],
+            isBesideClicked: besideList[3],
           ),
         ],
       ),

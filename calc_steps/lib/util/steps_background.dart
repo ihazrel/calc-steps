@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class StepsBackground extends StatelessWidget {
-  const StepsBackground({super.key});
+  StepsBackground({super.key});
+
+  var imageList = [
+    'exfactorize_1',
+    'exfactorize_2',
+    'exfactorize_3',
+    'exfactorize_4',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +38,9 @@ class StepsBackground extends StatelessWidget {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(32),
-                    child: Image.asset(
-                      'image/exfactorize_1.png',
-                      width: 250,
-                    ),
+                  child: Image.asset(
+                    'image/${imageList[0]}.png',
+                    width: 250,
                   ),
                 ),
               ),
