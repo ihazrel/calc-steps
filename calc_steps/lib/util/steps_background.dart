@@ -6,17 +6,21 @@ import 'package:flutter/widgets.dart';
 
 class StepsBackground extends StatelessWidget {
   int imageIndex = 0;
+  int formulaIndex = 0;
+  int imageCategory = 0;
 
-  StepsBackground({
-    super.key,
-    required this.imageIndex,
-  });
+  StepsBackground({required this.imageIndex, required this.formulaIndex});
 
   var imageList = [
-    'exfactorize_1',
-    'exfactorize_2',
-    'exfactorize_3',
-    'exfactorize_4',
+    'factorize_1',
+    'factorize_2',
+    'factorize_3',
+    'factorize_4',
+  ];
+
+  var calcList = [
+    'ex',
+    'ms',
   ];
 
   @override
@@ -46,7 +50,7 @@ class StepsBackground extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Image.asset(
-                    'image/${imageList[imageIndex]}.png',
+                    'image/${calcList[formulaIndex]}${imageList[imageIndex]}.png',
                     width: 250,
                   ),
                 ),

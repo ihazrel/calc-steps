@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../util/steps_button.dart';
 
 class CalculatorTwo extends StatefulWidget {
-  CalculatorTwo({super.key});
+  final Function(int) onUpdateImageIndex;
+
+  CalculatorTwo({Key? key, required this.onUpdateImageIndex}) : super(key: key);
 
   @override
   State<CalculatorTwo> createState() => _CalculatorTwoState();
@@ -46,6 +48,9 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
     // Update the besideList after the button is clicked
     updateBesideList(i);
 
+    // update imageIndex
+    widget.onUpdateImageIndex(i);
+
     // Print out the contents of the besideList for debugging
     /* for (int j = 0; j < besideList.length; j++) {
       print("$i$j" + ", " + besideList[j].toString());
@@ -61,7 +66,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
         children: [
           //step 1
           StepsButton(
-            text: "Ipsum Lorum 1",
+            text: "Lorum Ipsum 1",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -73,7 +78,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 2
           StepsButton(
-            text: "Ipsum Lorum 2",
+            text: "Lorum Ipsum 2",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -85,7 +90,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 3
           StepsButton(
-            text: "Ipsum Lorum 3",
+            text: "Lorum Ipsum 3",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -94,30 +99,6 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
             isFirstLast: 2,
             isBesideClicked: besideList[2],
           ),
-
-          /* //step 4
-          StepsButton(
-            text: "Ipsum Lorum 4",
-            onPressed: () => setState(() {
-              onClick(3);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[3],
-            isFirstLast: 0,
-            isBesideClicked: besideList[3],
-          ),
-
-          //step 5
-          StepsButton(
-            text: "Ipsum Lorum 5",
-            onPressed: () => setState(() {
-              onClick(4);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[4],
-            isFirstLast: 2,
-            isBesideClicked: besideList[4],
-          ), */
         ],
       ),
     );

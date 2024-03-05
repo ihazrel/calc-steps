@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../util/steps_button.dart';
 
 class CalculatorOne extends StatefulWidget {
-  CalculatorOne({super.key});
+  final Function(int) onUpdateImageIndex;
+
+  CalculatorOne({Key? key, required this.onUpdateImageIndex}) : super(key: key);
 
   @override
   State<CalculatorOne> createState() => _CalculatorOneState();
@@ -45,6 +47,9 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
     // Update the besideList after the button is clicked
     updateBesideList(i);
+
+    // update imageIndex
+    widget.onUpdateImageIndex(i);
 
     // Print out the contents of the besideList for debugging
     /* for (int j = 0; j < besideList.length; j++) {
