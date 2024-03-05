@@ -1,9 +1,16 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class StepsBackground extends StatelessWidget {
-  StepsBackground({super.key});
+  int imageIndex = 0;
+
+  StepsBackground({
+    super.key,
+    required this.imageIndex,
+  });
 
   var imageList = [
     'exfactorize_1',
@@ -39,7 +46,7 @@ class StepsBackground extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Image.asset(
-                    'image/${imageList[0]}.png',
+                    'image/${imageList[imageIndex]}.png',
                     width: 250,
                   ),
                 ),
