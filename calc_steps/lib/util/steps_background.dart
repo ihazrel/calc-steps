@@ -9,6 +9,8 @@ class StepsBackground extends StatelessWidget {
   int formulaIndex = 0;
   int imageCategory = 0;
 
+  int imageDisplay = 0;
+
   StepsBackground({required this.imageIndex, required this.formulaIndex});
 
   var imageList = [
@@ -16,6 +18,9 @@ class StepsBackground extends StatelessWidget {
     'factorize_2',
     'factorize_3',
     'factorize_4',
+    'power_1',
+    'power_2',
+    'power_3',
   ];
 
   var calcList = [
@@ -25,6 +30,10 @@ class StepsBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (formulaIndex == 0)
+      imageIndex = imageIndex;
+    else if (formulaIndex == 1) imageIndex = imageIndex + 4;
+
     return SizedBox(
       height: 500,
       child: Stack(
@@ -50,7 +59,7 @@ class StepsBackground extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Image.asset(
-                    'image/${calcList[formulaIndex]}${imageList[imageIndex]}.png',
+                    'image/${calcList[0]}${imageList[imageIndex]}.png',
                     width: 250,
                   ),
                 ),

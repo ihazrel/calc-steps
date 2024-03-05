@@ -66,7 +66,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
         children: [
           //step 1
           StepsButton(
-            text: "Lorum Ipsum 1",
+            text: "Press SETUP button",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -78,7 +78,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 2
           StepsButton(
-            text: "Lorum Ipsum 2",
+            text: "Press (-) button to access Equation / Function",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -90,7 +90,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 3
           StepsButton(
-            text: "Lorum Ipsum 3",
+            text: "Press 2 for Polynomial",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -102,7 +102,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 4
           StepsButton(
-            text: "Lorum Ipsum 4",
+            text: "Press number of highest power of the equation",
             onPressed: () => setState(() {
               onClick(3);
             }),

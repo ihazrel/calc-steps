@@ -66,7 +66,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
         children: [
           //step 1
           StepsButton(
-            text: "Lorum Ipsum 1",
+            text: "Press number of your base",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -78,7 +78,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 2
           StepsButton(
-            text: "Lorum Ipsum 2",
+            text: "Press on the variable X with square on top",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -90,7 +90,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 3
           StepsButton(
-            text: "Lorum Ipsum 3",
+            text: "Press the number for power needed",
             onPressed: () => setState(() {
               onClick(2);
             }),

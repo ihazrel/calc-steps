@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   formulaIndex = index;
                   _formulaImageIndex = index;
+                  _imageIndex = 0;
                 });
               },
             ),
