@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class DropdownCalculator extends StatefulWidget {
-  final void Function(int)? onIndexChanged; // Define the callback
+  final void Function(int)? onFormulaIndexChanged;
+  final void Function(int)? onCalculatorIndexChanged; // Define the callback
 
-  DropdownCalculator({Key? key, this.onIndexChanged}) : super(key: key);
+  DropdownCalculator({
+    required this.onFormulaIndexChanged,
+    required this.onCalculatorIndexChanged,
+  });
 
   @override
   State<DropdownCalculator> createState() => _DropdownCalculatorState();
@@ -51,6 +55,9 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                   setState(() {
                     calculatorDropdownValue = newValue!;
                     calculatorIndex = calculatorList.indexOf(newValue);
+                    if (widget.onCalculatorIndexChanged != null) {
+                      widget.onCalculatorIndexChanged!(calculatorIndex);
+                    }
                   });
                 },
               ),
@@ -81,8 +88,8 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                   setState(() {
                     formulaDropdownValue = newValue!;
                     formulaIndex = formulaList.indexOf(newValue);
-                    if (widget.onIndexChanged != null) {
-                      widget.onIndexChanged!(formulaIndex);
+                    if (widget.onFormulaIndexChanged != null) {
+                      widget.onFormulaIndexChanged!(formulaIndex);
                     }
                   });
                 },

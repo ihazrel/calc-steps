@@ -17,7 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int formulaIndex = 0;
-  int _formulaImageIndex = 0; // Define formulaIndex here
+  int _calculatorIndex = 0;
+// Define formulaIndex here
   int _imageIndex = 0;
 
   void handleButtonPressed(int index) {
@@ -47,11 +48,16 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             // calculator dropdown
             DropdownCalculator(
-              onIndexChanged: (int index) {
+              onFormulaIndexChanged: (int index) {
                 setState(() {
-                  formulaIndex = index;
-                  _formulaImageIndex = index;
                   _imageIndex = 0;
+                  formulaIndex = index;
+                  _calculatorIndex = _calculatorIndex;
+                });
+              },
+              onCalculatorIndexChanged: (int index) {
+                setState(() {
+                  _calculatorIndex = index;
                 });
               },
             ),
@@ -62,7 +68,8 @@ class _HomePageState extends State<HomePage> {
                 //background
                 StepsBackground(
                   imageIndex: _imageIndex,
-                  formulaIndex: _formulaImageIndex,
+                  formulaIndex: formulaIndex,
+                  calculatorIndex: _calculatorIndex,
                 ),
 
                 //steps - conditional rendering based on formulaIndex
