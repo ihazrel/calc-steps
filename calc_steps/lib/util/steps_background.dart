@@ -10,7 +10,7 @@ class StepsBackground extends StatelessWidget {
   int calculatorIndex = 0;
   int imageCategory = 0;
 
-  int imageDisplay = 0;
+  String imageDisplay = "";
 
   StepsBackground({
     required this.imageIndex,
@@ -18,7 +18,7 @@ class StepsBackground extends StatelessWidget {
     required this.calculatorIndex,
   });
 
-  var imageList = [
+  var imageListEX = [
     'factorize_1',
     'factorize_2',
     'factorize_3',
@@ -28,6 +28,22 @@ class StepsBackground extends StatelessWidget {
     'power_3',
   ];
 
+  var imageListMS = [
+    'factorize_1',
+    'factorize_2',
+    'factorize_3',
+    'factorize_4',
+    'factorize_5',
+    'factorize_6',
+    'factorize_7',
+    'factorize_8',
+    'power_1',
+    'power_2',
+    'power_3',
+    'power_4',
+    'power_5',
+  ];
+
   var calcList = [
     'ex',
     'ms',
@@ -35,9 +51,19 @@ class StepsBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (formulaIndex == 0)
-      imageIndex = imageIndex;
-    else if (formulaIndex == 1) imageIndex = imageIndex + 4;
+    if (calculatorIndex == 0) {
+      imageDisplay = imageListEX[imageIndex];
+      if (formulaIndex == 1) {
+        imageIndex = imageIndex + 4;
+        imageDisplay = imageListEX[imageIndex];
+      }
+    } else if (calculatorIndex == 1) {
+      imageDisplay = imageListMS[imageIndex];
+      if (formulaIndex == 1) {
+        imageIndex = imageIndex + 8;
+        imageDisplay = imageListMS[imageIndex];
+      }
+    }
 
     return SizedBox(
       height: 500,
@@ -64,7 +90,7 @@ class StepsBackground extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Image.asset(
-                    'image/${calcList[calculatorIndex]}${imageList[imageIndex]}.png',
+                    'image/${calcList[calculatorIndex]}${imageDisplay}.png',
                     width: 250,
                   ),
                 ),

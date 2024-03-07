@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-
 import '../util/steps_button.dart';
 
-class CalculatorOne extends StatefulWidget {
+// calculator FX570MS
+
+class CalculatorTwoTwo extends StatefulWidget {
   final Function(int) onUpdateImageIndex;
 
-  CalculatorOne({Key? key, required this.onUpdateImageIndex}) : super(key: key);
+  CalculatorTwoTwo({Key? key, required this.onUpdateImageIndex})
+      : super(key: key);
 
   @override
-  State<CalculatorOne> createState() => _CalculatorOneState();
+  State<CalculatorTwoTwo> createState() => _CalculatorTwoTwoState();
 }
 
-class _CalculatorOneState extends State<CalculatorOne> {
-  var clickedList = [true, false, false, false];
-  List<int> besideList = [0, 1, 0, 0];
+class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
+  var clickedList = [true, false, false, false, false];
+  List<int> besideList = [0, 1, 0, 0, 0];
 
   void updateBesideList(int i) {
     // Update besideList based on the index i
@@ -26,7 +28,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
     // Update besideList based on the clicked index i
     besideList[i] = 0;
 
-    if (i == 3) {
+    if (i == 4) {
       besideList[i - 1] = 2;
     } else if (i > 0) {
       besideList[i - 1] = 2;
@@ -66,7 +68,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
         children: [
           //step 1
           StepsButton(
-            text: "Press SETUP button",
+            text: "Press ( to put number in bracket",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -78,7 +80,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 2
           StepsButton(
-            text: "Press (-) button to access Equation / Function",
+            text: "Press the number needed",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -90,7 +92,7 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 3
           StepsButton(
-            text: "Press 2 for Polynomial",
+            text: "Press the ^ button for power",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -102,14 +104,26 @@ class _CalculatorOneState extends State<CalculatorOne> {
 
           //step 4
           StepsButton(
-            text: "Press number of highest power of the equation",
+            text: "Press the number for power needed",
             onPressed: () => setState(() {
               onClick(3);
             }),
             onCurrent: false,
             isClicked: clickedList[3],
-            isFirstLast: 2,
+            isFirstLast: 0,
             isBesideClicked: besideList[3],
+          ),
+
+          //step 5
+          StepsButton(
+            text: "Press ) to close the bracket",
+            onPressed: () => setState(() {
+              onClick(4);
+            }),
+            onCurrent: false,
+            isClicked: clickedList[4],
+            isFirstLast: 2,
+            isBesideClicked: besideList[4],
           ),
         ],
       ),
