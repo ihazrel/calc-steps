@@ -28,41 +28,43 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: SizedBox(
-        width: 750,
+        width: 1028,
         child: Row(
           children: [
             // calculator dropdown menu
-            Container(
-              padding: EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                color: Color(0xFFE8E8E8),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: DropdownButton(
-                borderRadius: BorderRadius.circular(10),
-                itemHeight: 50,
-                value: calculatorDropdownValue,
-                icon: Icon(Icons.keyboard_arrow_down),
-                items: calculatorList.map(
-                  (String list) {
-                    return DropdownMenuItem(
-                      value: list,
-                      child: Text(list),
-                    );
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 10),
+              child: Container(
+                padding: EdgeInsets.all(4.0),
+                decoration: BoxDecoration(
+                  color: Color(0xFFE8E8E8),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: DropdownButton(
+                  borderRadius: BorderRadius.circular(10),
+                  itemHeight: 50,
+                  value: calculatorDropdownValue,
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  items: calculatorList.map(
+                    (String list) {
+                      return DropdownMenuItem(
+                        value: list,
+                        child: Text(list),
+                      );
+                    },
+                  ).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      calculatorDropdownValue = newValue!;
+                      calculatorIndex = calculatorList.indexOf(newValue);
+                      if (widget.onCalculatorIndexChanged != null) {
+                        widget.onCalculatorIndexChanged!(calculatorIndex);
+                      }
+                    });
                   },
-                ).toList(),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    calculatorDropdownValue = newValue!;
-                    calculatorIndex = calculatorList.indexOf(newValue);
-                    if (widget.onCalculatorIndexChanged != null) {
-                      widget.onCalculatorIndexChanged!(calculatorIndex);
-                    }
-                  });
-                },
+                ),
               ),
             ),
-            Spacer(),
 
             // formula dropdown menu
             Container(

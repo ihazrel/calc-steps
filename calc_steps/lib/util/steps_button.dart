@@ -22,11 +22,16 @@ class StepsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double buttonElevation = 0.0;
     //clicked color
+
     Color buttonColor = Colors.black;
     if (isClicked)
       buttonColor = Color(0xFFD1A7A0);
-    else if (!isClicked) buttonColor = Color(0xFFE8E8E8);
+    else if (!isClicked) {
+      buttonColor = Color(0xFFE8E8E8);
+      buttonElevation = 200;
+    }
 
     // curved border first last
     BorderRadius round;
@@ -44,14 +49,30 @@ class StepsButton extends StatelessWidget {
       round = round.copyWith(bottomRight: Radius.circular(32));
 
     return Expanded(
-      child: MaterialButton(
-        onPressed: onPressed,
-        child: Text(text),
-        color: buttonColor,
-        shape: RoundedRectangleBorder(borderRadius: round),
-        minWidth: 350,
-        elevation: 0,
-        // coloring
+      child: ConstrainedBox(
+        constraints:
+            BoxConstraints(maxWidth: 350), // Set your maximum width here
+        child: MaterialButton(
+          onPressed: onPressed,
+          child: Padding(
+            padding:
+                EdgeInsets.only(left: 20), // Set 10 pixels padding to the left
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                text,
+                textAlign:
+                    TextAlign.start, // Set text alignment to start (left)
+              ),
+            ),
+          ),
+          color: buttonColor,
+          shape: RoundedRectangleBorder(borderRadius: round),
+          minWidth:
+              0, // Set the minimum width to 0 to allow the button to size itself based on its contents
+          elevation: 0,
+          // Other properties
+        ),
       ),
     );
   }

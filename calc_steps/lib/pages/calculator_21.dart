@@ -59,7 +59,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
         children: [
           //step 1
           StepsButton(
-            text: "Press SETUP button three times",
+            text: "1. Press SETUP button three times",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -71,7 +71,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 2
           StepsButton(
-            text: "Press right to access Degree option",
+            text: "2. Press right to access Degree option",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -83,7 +83,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 3
           StepsButton(
-            text: "Press 2",
+            text: "3. Press 2",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -95,7 +95,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 4
           StepsButton(
-            text: "Enter value for a of the equation",
+            text: "4. Enter value A",
             onPressed: () => setState(() {
               onClick(3);
             }),
@@ -107,7 +107,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 5
           StepsButton(
-            text: "Enter value for b of the equation",
+            text: "5. Enter value B",
             onPressed: () => setState(() {
               onClick(4);
             }),
@@ -119,7 +119,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 6
           StepsButton(
-            text: "Enter value for c of the equation",
+            text: "6. Enter value C",
             onPressed: () => setState(() {
               onClick(5);
             }),
@@ -131,7 +131,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 7
           StepsButton(
-            text: "Press = button to see the first value",
+            text: "7. Press = button to see the first value",
             onPressed: () => setState(() {
               onClick(6);
             }),
@@ -143,7 +143,7 @@ class _CalculatorTwoOneState extends State<CalculatorTwoOne> {
 
           //step 8
           StepsButton(
-            text: "Press = button to see the second value",
+            text: "8. Press = button to see the second value",
             onPressed: () => setState(() {
               onClick(7);
             }),

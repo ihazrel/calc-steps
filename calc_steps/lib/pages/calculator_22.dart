@@ -68,7 +68,7 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
         children: [
           //step 1
           StepsButton(
-            text: "Press ( to put number in bracket",
+            text: "1. Press ( to put number in bracket",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -80,7 +80,7 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
 
           //step 2
           StepsButton(
-            text: "Press the number needed",
+            text: "2. Press the number needed",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -92,7 +92,7 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
 
           //step 3
           StepsButton(
-            text: "Press the ^ button for power",
+            text: "3. Press the ^ button for power",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -104,7 +104,7 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
 
           //step 4
           StepsButton(
-            text: "Press the number for power needed",
+            text: "4.Press the number for power needed",
             onPressed: () => setState(() {
               onClick(3);
             }),
@@ -116,7 +116,7 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
 
           //step 5
           StepsButton(
-            text: "Press ) to close the bracket",
+            text: "5. Press ) to close the bracket",
             onPressed: () => setState(() {
               onClick(4);
             }),

@@ -59,7 +59,7 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
         children: [
           //step 1
           StepsButton(
-            text: "Press SETUP button",
+            text: "1. Press SETUP button",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -71,7 +71,7 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
 
           //step 2
           StepsButton(
-            text: "Press (-) button to access Equation / Function",
+            text: "2. Press (-) button to access Equation / Function",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -83,7 +83,7 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
 
           //step 3
           StepsButton(
-            text: "Press 2 for Polynomial",
+            text: "3. Press 2 for Polynomial",
             onPressed: () => setState(() {
               onClick(2);
             }),
@@ -95,7 +95,7 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
 
           //step 4
           StepsButton(
-            text: "Press number of highest power of the equation",
+            text: "4. Press number of highest power of the equation",
             onPressed: () => setState(() {
               onClick(3);
             }),
