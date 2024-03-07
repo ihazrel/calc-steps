@@ -6,6 +6,7 @@ import 'package:calc_steps/pages/calculator_21.dart';
 import 'package:calc_steps/pages/calculator_22.dart';
 import 'package:calc_steps/util/dropdown_menu.dart';
 import 'package:calc_steps/util/steps_background.dart';
+import 'package:calc_steps/util/tutorial_button.dart';
 import 'package:flutter/material.dart';
 
 void onTest() {}
@@ -59,40 +60,55 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: <Widget>[
             // calculator dropdown
-            DropdownCalculator(
-              onFormulaIndexChanged: (int index) {
-                setState(() {
-                  _imageIndex = 0;
-                  _formulaIndex = index;
-                  _calculatorIndex = _calculatorIndex;
+            SizedBox(
+              width: 1028,
+              child: Row(
+                children: [
+                  DropdownCalculator(
+                    onFormulaIndexChanged: (int index) {
+                      setState(() {
+                        _imageIndex = 0;
+                        _formulaIndex = index;
+                        _calculatorIndex = _calculatorIndex;
 
-                  if (_formulaIndex == 0 && _calculatorIndex == 0) {
-                    _pageIndex = 0;
-                  } else if (_formulaIndex == 1 && _calculatorIndex == 0) {
-                    _pageIndex = 1;
-                  } else if (_formulaIndex == 0 && _calculatorIndex == 1) {
-                    _pageIndex = 2;
-                  } else if (_formulaIndex == 1 && _calculatorIndex == 1) {
-                    _pageIndex = 3;
-                  }
-                });
-              },
-              onCalculatorIndexChanged: (int index) {
-                setState(() {
-                  _imageIndex = 0;
-                  _calculatorIndex = index;
+                        if (_formulaIndex == 0 && _calculatorIndex == 0) {
+                          _pageIndex = 0;
+                        } else if (_formulaIndex == 1 &&
+                            _calculatorIndex == 0) {
+                          _pageIndex = 1;
+                        } else if (_formulaIndex == 0 &&
+                            _calculatorIndex == 1) {
+                          _pageIndex = 2;
+                        } else if (_formulaIndex == 1 &&
+                            _calculatorIndex == 1) {
+                          _pageIndex = 3;
+                        }
+                      });
+                    },
+                    onCalculatorIndexChanged: (int index) {
+                      setState(() {
+                        _imageIndex = 0;
+                        _calculatorIndex = index;
 
-                  if (_formulaIndex == 0 && _calculatorIndex == 0) {
-                    _pageIndex = 0;
-                  } else if (_formulaIndex == 1 && _calculatorIndex == 0) {
-                    _pageIndex = 1;
-                  } else if (_formulaIndex == 0 && _calculatorIndex == 1) {
-                    _pageIndex = 2;
-                  } else if (_formulaIndex == 1 && _calculatorIndex == 1) {
-                    _pageIndex = 3;
-                  }
-                });
-              },
+                        if (_formulaIndex == 0 && _calculatorIndex == 0) {
+                          _pageIndex = 0;
+                        } else if (_formulaIndex == 1 &&
+                            _calculatorIndex == 0) {
+                          _pageIndex = 1;
+                        } else if (_formulaIndex == 0 &&
+                            _calculatorIndex == 1) {
+                          _pageIndex = 2;
+                        } else if (_formulaIndex == 1 &&
+                            _calculatorIndex == 1) {
+                          _pageIndex = 3;
+                        }
+                      });
+                    },
+                  ),
+                  Spacer(),
+                  TutorialButton(),
+                ],
+              ),
             ),
 
             //calculator steps container

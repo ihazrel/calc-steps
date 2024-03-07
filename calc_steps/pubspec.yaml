@@ -24,4 +24,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - image/
+    - image/ex/factorize/
+    - image/ex/power/
+    - image/ms/factorize/
+    - image/ms/power/

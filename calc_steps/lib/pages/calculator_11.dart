@@ -95,7 +95,7 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
 
           //step 4
           StepsButton(
-            text: "4. Press number of highest power of the equation",
+            text: "4.Press number of highest power of the equation",
             onPressed: () => setState(() {
               onClick(3);
             }),

@@ -22,7 +22,6 @@ class StepsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double buttonElevation = 0.0;
     //clicked color
 
     Color buttonColor = Colors.black;
@@ -30,7 +29,6 @@ class StepsButton extends StatelessWidget {
       buttonColor = Color(0xFFD1A7A0);
     else if (!isClicked) {
       buttonColor = Color(0xFFE8E8E8);
-      buttonElevation = 200;
     }
 
     // curved border first last
