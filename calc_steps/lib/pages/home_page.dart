@@ -56,76 +56,99 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(225, 206, 150, 166),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            // calculator dropdown
-            SizedBox(
-              width: 1028,
-              child: Row(
-                children: [
-                  DropdownCalculator(
-                    onFormulaIndexChanged: (int index) {
-                      setState(() {
-                        _imageIndex = 0;
-                        _formulaIndex = index;
-                        _calculatorIndex = _calculatorIndex;
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                width: 1028,
+                child: Row(
+                  children: [
+                    // dropdown menu
+                    DropdownCalculator(
+                      onFormulaIndexChanged: (int index) {
+                        setState(() {
+                          _imageIndex = 0;
+                          _formulaIndex = index;
+                          _calculatorIndex = _calculatorIndex;
 
-                        if (_formulaIndex == 0 && _calculatorIndex == 0) {
-                          _pageIndex = 0;
-                        } else if (_formulaIndex == 1 &&
-                            _calculatorIndex == 0) {
-                          _pageIndex = 1;
-                        } else if (_formulaIndex == 0 &&
-                            _calculatorIndex == 1) {
-                          _pageIndex = 2;
-                        } else if (_formulaIndex == 1 &&
-                            _calculatorIndex == 1) {
-                          _pageIndex = 3;
-                        }
-                      });
-                    },
-                    onCalculatorIndexChanged: (int index) {
-                      setState(() {
-                        _imageIndex = 0;
-                        _calculatorIndex = index;
+                          if (_formulaIndex == 0 && _calculatorIndex == 0) {
+                            _pageIndex = 0;
+                          } else if (_formulaIndex == 1 &&
+                              _calculatorIndex == 0) {
+                            _pageIndex = 1;
+                          } else if (_formulaIndex == 0 &&
+                              _calculatorIndex == 1) {
+                            _pageIndex = 2;
+                          } else if (_formulaIndex == 1 &&
+                              _calculatorIndex == 1) {
+                            _pageIndex = 3;
+                          }
+                        });
+                      },
+                      onCalculatorIndexChanged: (int index) {
+                        setState(() {
+                          _imageIndex = 0;
+                          _calculatorIndex = index;
 
-                        if (_formulaIndex == 0 && _calculatorIndex == 0) {
-                          _pageIndex = 0;
-                        } else if (_formulaIndex == 1 &&
-                            _calculatorIndex == 0) {
-                          _pageIndex = 1;
-                        } else if (_formulaIndex == 0 &&
-                            _calculatorIndex == 1) {
-                          _pageIndex = 2;
-                        } else if (_formulaIndex == 1 &&
-                            _calculatorIndex == 1) {
-                          _pageIndex = 3;
-                        }
-                      });
-                    },
+                          if (_formulaIndex == 0 && _calculatorIndex == 0) {
+                            _pageIndex = 0;
+                          } else if (_formulaIndex == 1 &&
+                              _calculatorIndex == 0) {
+                            _pageIndex = 1;
+                          } else if (_formulaIndex == 0 &&
+                              _calculatorIndex == 1) {
+                            _pageIndex = 2;
+                          } else if (_formulaIndex == 1 &&
+                              _calculatorIndex == 1) {
+                            _pageIndex = 3;
+                          }
+                        });
+                      },
+                    ),
+                    Spacer(),
+
+                    // how to use button
+                    TutorialButton(),
+                  ],
+                ),
+              ),
+
+              //calculator steps container
+              Stack(
+                children: <Widget>[
+                  //background
+                  StepsBackground(
+                    imageIndex: _imageIndex,
+                    formulaIndex: _formulaIndex,
+                    calculatorIndex: _calculatorIndex,
                   ),
-                  Spacer(),
-                  TutorialButton(),
+
+                  //steps - conditional rendering based on _formulaIndex
+                  _pages[_pageIndex],
                 ],
               ),
-            ),
 
-            //calculator steps container
-            Stack(
-              children: <Widget>[
-                //background
-                StepsBackground(
-                  imageIndex: _imageIndex,
-                  formulaIndex: _formulaIndex,
-                  calculatorIndex: _calculatorIndex,
+              SizedBox(
+                width: 1028,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5.00),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Made by Hazrel Idlan",
+                      style: TextStyle(
+                        fontFamily: 'Arial Bold',
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                  ),
                 ),
-
-                //steps - conditional rendering based on _formulaIndex
-                _pages[_pageIndex],
-              ],
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
