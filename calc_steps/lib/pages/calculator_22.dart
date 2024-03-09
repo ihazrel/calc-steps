@@ -62,71 +62,68 @@ class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: Column(
-        children: [
-          //step 1
-          StepsButton(
-            text: "1. Press ( to put number in bracket",
-            onPressed: () => setState(() {
-              onClick(0);
-            }),
-            onCurrent: true,
-            isClicked: clickedList[0],
-            isFirstLast: 1,
-            isBesideClicked: besideList[0],
-          ),
+    return Column(
+      children: [
+        //step 1
+        StepsButton(
+          text: "1. Press ( to put number in bracket",
+          onPressed: () => setState(() {
+            onClick(0);
+          }),
+          onCurrent: true,
+          isClicked: clickedList[0],
+          isFirstLast: 1,
+          isBesideClicked: besideList[0],
+        ),
 
-          //step 2
-          StepsButton(
-            text: "2. Press the number needed",
-            onPressed: () => setState(() {
-              onClick(1);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[1],
-            isFirstLast: 0,
-            isBesideClicked: besideList[1],
-          ),
+        //step 2
+        StepsButton(
+          text: "2. Press the number needed",
+          onPressed: () => setState(() {
+            onClick(1);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[1],
+          isFirstLast: 0,
+          isBesideClicked: besideList[1],
+        ),
 
-          //step 3
-          StepsButton(
-            text: "3. Press the ^ button for power",
-            onPressed: () => setState(() {
-              onClick(2);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[2],
-            isFirstLast: 0,
-            isBesideClicked: besideList[2],
-          ),
+        //step 3
+        StepsButton(
+          text: "3. Press the ^ button for power",
+          onPressed: () => setState(() {
+            onClick(2);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[2],
+          isFirstLast: 0,
+          isBesideClicked: besideList[2],
+        ),
 
-          //step 4
-          StepsButton(
-            text: "4.Press the number for power needed",
-            onPressed: () => setState(() {
-              onClick(3);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[3],
-            isFirstLast: 0,
-            isBesideClicked: besideList[3],
-          ),
+        //step 4
+        StepsButton(
+          text: "4.Press the number for power needed",
+          onPressed: () => setState(() {
+            onClick(3);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[3],
+          isFirstLast: 0,
+          isBesideClicked: besideList[3],
+        ),
 
-          //step 5
-          StepsButton(
-            text: "5. Press ) to close the bracket",
-            onPressed: () => setState(() {
-              onClick(4);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[4],
-            isFirstLast: 2,
-            isBesideClicked: besideList[4],
-          ),
-        ],
-      ),
+        //step 5
+        StepsButton(
+          text: "5. Press ) to close the bracket",
+          onPressed: () => setState(() {
+            onClick(4);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[4],
+          isFirstLast: 2,
+          isBesideClicked: besideList[4],
+        ),
+      ],
     );
   }
 }

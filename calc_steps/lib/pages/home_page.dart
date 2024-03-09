@@ -7,7 +7,9 @@ import 'package:calc_steps/pages/calculator_22.dart';
 import 'package:calc_steps/util/dropdown_menu.dart';
 import 'package:calc_steps/util/steps_background.dart';
 import 'package:calc_steps/util/tutorial_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void onTest() {}
 
@@ -55,7 +57,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(225, 206, 150, 166),
+      backgroundColor: Color(0xFFCE96A6),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Center(
@@ -126,26 +128,26 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                   //steps - conditional rendering based on _formulaIndex
-                  _pages[_pageIndex],
-                ],
-              ),
-
-              SizedBox(
-                width: 1028,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 5.00),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Made by Hazrel Idlan",
-                      style: TextStyle(
-                        fontFamily: 'Arial Bold',
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
+                  Container(
+                    constraints: BoxConstraints(maxHeight: 500, maxWidth: 1028),
+                    child: Row(
+                      children: [
+                        Expanded(flex: 4, child: _pages[_pageIndex]),
+                        Expanded(
+                          flex: 6,
+                          child: Container(
+                            color: Colors.transparent,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                ],
+              ),
+              Spacer(),
+              Container(
+                width: 1028,
+                child: Center(child: Text("Built by Hazrel Idlan")),
               )
             ],
           ),

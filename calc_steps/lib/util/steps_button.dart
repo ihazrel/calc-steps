@@ -47,30 +47,23 @@ class StepsButton extends StatelessWidget {
       round = round.copyWith(bottomRight: Radius.circular(32));
 
     return Expanded(
-      child: ConstrainedBox(
-        constraints:
-            BoxConstraints(maxWidth: 350), // Set your maximum width here
-        child: MaterialButton(
-          onPressed: onPressed,
-          child: Padding(
-            padding:
-                EdgeInsets.only(left: 20), // Set 10 pixels padding to the left
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                text,
-                textAlign:
-                    TextAlign.start, // Set text alignment to start (left)
-              ),
+      child: MaterialButton(
+        onPressed: onPressed,
+        child: Padding(
+          padding:
+              EdgeInsets.only(left: 20), // Set 10 pixels padding to the left
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              text,
+              textAlign: TextAlign.start, // Set text alignment to start (left)
             ),
           ),
-          color: buttonColor,
-          shape: RoundedRectangleBorder(borderRadius: round),
-          minWidth:
-              0, // Set the minimum width to 0 to allow the button to size itself based on its contents
-          elevation: 0,
-          // Other properties
         ),
+        color: buttonColor,
+        shape: RoundedRectangleBorder(borderRadius: round),
+        minWidth: 0,
+        elevation: 0,
       ),
     );
   }

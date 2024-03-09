@@ -53,59 +53,56 @@ class _CalculatorOneOneState extends State<CalculatorOneOne> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: Column(
-        children: [
-          //step 1
-          StepsButton(
-            text: "1. Press SETUP button",
-            onPressed: () => setState(() {
-              onClick(0);
-            }),
-            onCurrent: true,
-            isClicked: clickedList[0],
-            isFirstLast: 1,
-            isBesideClicked: besideList[0],
-          ),
+    return Column(
+      children: [
+        //step 1
+        StepsButton(
+          text: "1. Press SETUP button",
+          onPressed: () => setState(() {
+            onClick(0);
+          }),
+          onCurrent: true,
+          isClicked: clickedList[0],
+          isFirstLast: 1,
+          isBesideClicked: besideList[0],
+        ),
 
-          //step 2
-          StepsButton(
-            text: "2. Press (-) button to access Equation / Function",
-            onPressed: () => setState(() {
-              onClick(1);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[1],
-            isFirstLast: 0,
-            isBesideClicked: besideList[1],
-          ),
+        //step 2
+        StepsButton(
+          text: "2. Press (-) button to access Equation / Function",
+          onPressed: () => setState(() {
+            onClick(1);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[1],
+          isFirstLast: 0,
+          isBesideClicked: besideList[1],
+        ),
 
-          //step 3
-          StepsButton(
-            text: "3. Press 2 for Polynomial",
-            onPressed: () => setState(() {
-              onClick(2);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[2],
-            isFirstLast: 0,
-            isBesideClicked: besideList[2],
-          ),
+        //step 3
+        StepsButton(
+          text: "3. Press 2 for Polynomial",
+          onPressed: () => setState(() {
+            onClick(2);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[2],
+          isFirstLast: 0,
+          isBesideClicked: besideList[2],
+        ),
 
-          //step 4
-          StepsButton(
-            text: "4.Press number of highest power of the equation",
-            onPressed: () => setState(() {
-              onClick(3);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[3],
-            isFirstLast: 2,
-            isBesideClicked: besideList[3],
-          ),
-        ],
-      ),
+        //step 4
+        StepsButton(
+          text: "4.Press number of highest power of the equation",
+          onPressed: () => setState(() {
+            onClick(3);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[3],
+          isFirstLast: 2,
+          isBesideClicked: besideList[3],
+        ),
+      ],
     );
   }
 }

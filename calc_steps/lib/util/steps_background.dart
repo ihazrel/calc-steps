@@ -20,35 +20,42 @@ class StepsBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: Stack(
+    return Container(
+      constraints:
+          BoxConstraints(maxWidth: 1028, maxHeight: 500, minHeight: 500),
+      child: Row(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0xFFD1A7A0),
-              borderRadius: BorderRadius.circular(32),
-            ),
-            height: 500,
-            width: 1028,
-          ),
-          Positioned(
-            right: 0,
+          Expanded(
+            flex: 4,
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xFFD1A7A0),
-                borderRadius: BorderRadius.circular(32),
-              ),
-              height: 500,
-              width: 1028 - 350,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: loadImageAsset(),
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(225, 206, 150, 166),
+                    Color(0xFFD1A7A0),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.center,
                 ),
               ),
             ),
-          )
+          ),
+          Expanded(
+            flex: 6,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(32),
+                    bottomRight: Radius.circular(32)),
+                color: Color(0xFFD1A7A0),
+              ),
+              constraints: BoxConstraints(minHeight: 500),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: loadImageAsset(),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -62,7 +69,7 @@ class StepsBackground extends StatelessWidget {
 
     return Image.asset(
       imagePath,
-      width: 250, 
+      width: 250,
     );
   }
 }

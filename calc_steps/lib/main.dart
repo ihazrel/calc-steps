@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:calc_steps/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:window_size/window_size.dart';
 
 void main() {
@@ -9,7 +10,7 @@ void main() {
 
   if (Platform.isWindows || Platform.isLinux || Platform.isIOS) {
     setWindowTitle('CalcSteps');
-    setWindowMinSize(Size(1056, 665));
+    setWindowMinSize(Size(500, 660));
   }
 
   runApp(const MainApp());

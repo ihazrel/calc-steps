@@ -62,47 +62,44 @@ class _CalculatorOneTwoState extends State<CalculatorOneTwo> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 500,
-      child: Column(
-        children: [
-          //step 1
-          StepsButton(
-            text: "1. Press number of your base",
-            onPressed: () => setState(() {
-              onClick(0);
-            }),
-            onCurrent: true,
-            isClicked: clickedList[0],
-            isFirstLast: 1,
-            isBesideClicked: besideList[0],
-          ),
+    return Column(
+      children: [
+        //step 1
+        StepsButton(
+          text: "1. Press number of your base",
+          onPressed: () => setState(() {
+            onClick(0);
+          }),
+          onCurrent: true,
+          isClicked: clickedList[0],
+          isFirstLast: 1,
+          isBesideClicked: besideList[0],
+        ),
 
-          //step 2
-          StepsButton(
-            text: "2. Press on the variable X with square on top",
-            onPressed: () => setState(() {
-              onClick(1);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[1],
-            isFirstLast: 0,
-            isBesideClicked: besideList[1],
-          ),
+        //step 2
+        StepsButton(
+          text: "2. Press on the variable X with square on top",
+          onPressed: () => setState(() {
+            onClick(1);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[1],
+          isFirstLast: 0,
+          isBesideClicked: besideList[1],
+        ),
 
-          //step 3
-          StepsButton(
-            text: "3. Press the number for power needed",
-            onPressed: () => setState(() {
-              onClick(2);
-            }),
-            onCurrent: false,
-            isClicked: clickedList[2],
-            isFirstLast: 2,
-            isBesideClicked: besideList[2],
-          ),
-        ],
-      ),
+        //step 3
+        StepsButton(
+          text: "3. Press the number for power needed",
+          onPressed: () => setState(() {
+            onClick(2);
+          }),
+          onCurrent: false,
+          isClicked: clickedList[2],
+          isFirstLast: 2,
+          isBesideClicked: besideList[2],
+        ),
+      ],
     );
   }
 }
