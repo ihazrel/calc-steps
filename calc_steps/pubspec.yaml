@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  kumi_popup_window: ^2.0.1
+  shared_preferences: ^2.2.2
   window_size:
     git:
      url: https://github.com/google/flutter-desktop-embedding
@@ -22,4 +24,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - image/
+    - image/ex/factorize/
+    - image/ex/power/
+    - image/ms/factorize/
+    - image/ms/power/

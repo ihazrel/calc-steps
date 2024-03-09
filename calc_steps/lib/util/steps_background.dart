@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class StepsBackground extends StatelessWidget {
-  int imageIndex = 0;
-  int formulaIndex = 0;
-  int calculatorIndex = 0;
-  int imageCategory = 0;
+  final int imageIndex;
+  final int formulaIndex;
+  final int calculatorIndex;
 
-  int imageDisplay = 0;
+  final List<String> calcList = ['ex', 'ms'];
+  final List<String> formulaList = ['factorize', 'power'];
 
   StepsBackground({
     required this.imageIndex,
@@ -18,27 +18,8 @@ class StepsBackground extends StatelessWidget {
     required this.calculatorIndex,
   });
 
-  var imageList = [
-    'factorize_1',
-    'factorize_2',
-    'factorize_3',
-    'factorize_4',
-    'power_1',
-    'power_2',
-    'power_3',
-  ];
-
-  var calcList = [
-    'ex',
-    'ms',
-  ];
-
   @override
   Widget build(BuildContext context) {
-    if (formulaIndex == 0)
-      imageIndex = imageIndex;
-    else if (formulaIndex == 1) imageIndex = imageIndex + 4;
-
     return SizedBox(
       height: 500,
       child: Stack(
@@ -63,16 +44,25 @@ class StepsBackground extends StatelessWidget {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Image.asset(
-                    'image/${calcList[calculatorIndex]}${imageList[imageIndex]}.png',
-                    width: 250,
-                  ),
+                  child: loadImageAsset(),
                 ),
               ),
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget loadImageAsset() {
+    String imagePath = 'image/';
+    imagePath += '${calcList.elementAt(calculatorIndex)}/';
+    imagePath += '${formulaList.elementAt(formulaIndex)}/';
+    imagePath += '${imageIndex + 1}.webp';
+
+    return Image.asset(
+      imagePath,
+      width: 250, 
     );
   }
 }

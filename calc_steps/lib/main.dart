@@ -8,9 +8,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   if (Platform.isWindows || Platform.isLinux || Platform.isIOS) {
-    setWindowTitle('Calculator Step');
-    setWindowMaxSize(const Size(1280, 720));
-    setWindowMinSize(const Size(1280, 720));
+    setWindowTitle('CalcSteps');
+    setWindowMinSize(Size(1056, 665));
   }
 
   runApp(const MainApp());

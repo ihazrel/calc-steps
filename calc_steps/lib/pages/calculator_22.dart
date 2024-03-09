@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-
 import '../util/steps_button.dart';
 
-class CalculatorTwo extends StatefulWidget {
+// calculator FX570MS
+
+class CalculatorTwoTwo extends StatefulWidget {
   final Function(int) onUpdateImageIndex;
 
-  CalculatorTwo({Key? key, required this.onUpdateImageIndex}) : super(key: key);
+  CalculatorTwoTwo({Key? key, required this.onUpdateImageIndex})
+      : super(key: key);
 
   @override
-  State<CalculatorTwo> createState() => _CalculatorTwoState();
+  State<CalculatorTwoTwo> createState() => _CalculatorTwoTwoState();
 }
 
-class _CalculatorTwoState extends State<CalculatorTwo> {
-  var clickedList = [true, false, false];
-  List<int> besideList = [0, 1, 0];
+class _CalculatorTwoTwoState extends State<CalculatorTwoTwo> {
+  var clickedList = [true, false, false, false, false];
+  List<int> besideList = [0, 1, 0, 0, 0];
 
   void updateBesideList(int i) {
     // Update besideList based on the index i
@@ -26,7 +28,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
     // Update besideList based on the clicked index i
     besideList[i] = 0;
 
-    if (i == 2) {
+    if (i == 4) {
       besideList[i - 1] = 2;
     } else if (i > 0) {
       besideList[i - 1] = 2;
@@ -66,7 +68,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
         children: [
           //step 1
           StepsButton(
-            text: "Press number of your base",
+            text: "1. Press ( to put number in bracket",
             onPressed: () => setState(() {
               onClick(0);
             }),
@@ -78,7 +80,7 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 2
           StepsButton(
-            text: "Press on the variable X with square on top",
+            text: "2. Press the number needed",
             onPressed: () => setState(() {
               onClick(1);
             }),
@@ -90,14 +92,38 @@ class _CalculatorTwoState extends State<CalculatorTwo> {
 
           //step 3
           StepsButton(
-            text: "Press the number for power needed",
+            text: "3. Press the ^ button for power",
             onPressed: () => setState(() {
               onClick(2);
             }),
             onCurrent: false,
             isClicked: clickedList[2],
-            isFirstLast: 2,
+            isFirstLast: 0,
             isBesideClicked: besideList[2],
+          ),
+
+          //step 4
+          StepsButton(
+            text: "4.Press the number for power needed",
+            onPressed: () => setState(() {
+              onClick(3);
+            }),
+            onCurrent: false,
+            isClicked: clickedList[3],
+            isFirstLast: 0,
+            isBesideClicked: besideList[3],
+          ),
+
+          //step 5
+          StepsButton(
+            text: "5. Press ) to close the bracket",
+            onPressed: () => setState(() {
+              onClick(4);
+            }),
+            onCurrent: false,
+            isClicked: clickedList[4],
+            isFirstLast: 2,
+            isBesideClicked: besideList[4],
           ),
         ],
       ),
