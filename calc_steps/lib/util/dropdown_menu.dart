@@ -15,10 +15,10 @@ class DropdownCalculator extends StatefulWidget {
 
 class _DropdownCalculatorState extends State<DropdownCalculator> {
   String calculatorDropdownValue = "FX570Ex";
-  var calculatorList = ['FX570Ex', 'FX570MS'];
+  final List<String> calculatorDropdownItems = ['FX570Ex', 'FX570MS'];
 
   String formulaDropdownValue = "Factorization";
-  var formulaList = ['Factorization', 'Power Of'];
+  final List<String> formulaDropdownItems = ['Factorization', 'Power Of'];
 
   int formulaIndex = 0;
   int calculatorIndex = 0;
@@ -43,7 +43,7 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                 itemHeight: 50,
                 value: calculatorDropdownValue,
                 icon: Icon(Icons.keyboard_arrow_down),
-                items: calculatorList.map(
+                items: calculatorDropdownItems.map(
                   (String list) {
                     return DropdownMenuItem(
                       value: list,
@@ -54,7 +54,7 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                 onChanged: (String? newValue) {
                   setState(() {
                     calculatorDropdownValue = newValue!;
-                    calculatorIndex = calculatorList.indexOf(newValue);
+                    calculatorIndex = calculatorDropdownItems.indexOf(newValue);
                     if (widget.onCalculatorIndexChanged != null) {
                       widget.onCalculatorIndexChanged!(calculatorIndex);
                     }
@@ -76,7 +76,7 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
               itemHeight: 50,
               value: formulaDropdownValue,
               icon: Icon(Icons.keyboard_arrow_down),
-              items: formulaList.map(
+              items: formulaDropdownItems.map(
                 (String list) {
                   return DropdownMenuItem(
                     value: list,
@@ -87,7 +87,7 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
               onChanged: (String? newValue) {
                 setState(() {
                   formulaDropdownValue = newValue!;
-                  formulaIndex = formulaList.indexOf(newValue);
+                  formulaIndex = formulaDropdownItems.indexOf(newValue);
                   if (widget.onFormulaIndexChanged != null) {
                     widget.onFormulaIndexChanged!(formulaIndex);
                   }

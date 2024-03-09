@@ -5,25 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class StepsBackground extends StatelessWidget {
-  int imageIndex = 0;
-  int formulaIndex = 0;
-  int calculatorIndex = 0;
+  final int imageIndex;
+  final int formulaIndex;
+  final int calculatorIndex;
+
+  final List<String> calcList = ['ex', 'ms'];
+  final List<String> formulaList = ['factorize', 'power'];
 
   StepsBackground({
     required this.imageIndex,
     required this.formulaIndex,
     required this.calculatorIndex,
   });
-
-  var calcList = [
-    'ex',
-    'ms',
-  ];
-
-  var formulaList = [
-    'factorize',
-    'power',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,17 +44,25 @@ class StepsBackground extends StatelessWidget {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Image.asset(
-                    'image/${calcList[calculatorIndex]}/${formulaList[formulaIndex]}/${imageIndex + 1}.webp',
-                    //${calcList[calculatorIndex]}/${formulaList[formulaIndex]}/${imageIndex + 1}
-                    width: 250,
-                  ),
+                  child: loadImageAsset(),
                 ),
               ),
             ),
           )
         ],
       ),
+    );
+  }
+
+  Widget loadImageAsset() {
+    String imagePath = 'image/';
+    imagePath += '${calcList.elementAt(calculatorIndex)}/';
+    imagePath += '${formulaList.elementAt(formulaIndex)}/';
+    imagePath += '${imageIndex + 1}.webp';
+
+    return Image.asset(
+      imagePath,
+      width: 250, 
     );
   }
 }
