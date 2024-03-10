@@ -144,11 +144,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              Spacer(),
-              Container(
-                width: 1028,
-                child: Center(child: Text("Built by Hazrel Idlan")),
-              )
             ],
           ),
         ),
