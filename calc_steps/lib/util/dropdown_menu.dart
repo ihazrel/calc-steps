@@ -14,10 +14,10 @@ class DropdownCalculator extends StatefulWidget {
 }
 
 class _DropdownCalculatorState extends State<DropdownCalculator> {
-  String calculatorDropdownValue = "FX570Ex";
+  var calculatorDropdownValue = null;
   final List<String> calculatorDropdownItems = ['FX570Ex', 'FX570MS'];
 
-  String formulaDropdownValue = "Factorization";
+  var formulaDropdownValue = null;
   final List<String> formulaDropdownItems = ['Factorization', 'Power Of'];
 
   int formulaIndex = 0;
@@ -38,27 +38,31 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
                 color: Color(0xFFE8E8E8),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: DropdownButton(
+              child: DropdownButton<String>(
+                hint: Text('Calculator'),
                 borderRadius: BorderRadius.circular(10),
                 itemHeight: 50,
                 value: calculatorDropdownValue,
+                underline: Container(),
                 icon: Icon(Icons.keyboard_arrow_down),
-                items: calculatorDropdownItems.map(
-                  (String list) {
-                    return DropdownMenuItem(
-                      value: list,
-                      child: Text(list),
-                    );
-                  },
-                ).toList(),
+                items: calculatorDropdownItems.map((String list) {
+                  return DropdownMenuItem(
+                    value: list,
+                    child: Text(list),
+                  );
+                }).toList(),
                 onChanged: (String? newValue) {
-                  setState(() {
-                    calculatorDropdownValue = newValue!;
-                    calculatorIndex = calculatorDropdownItems.indexOf(newValue);
-                    if (widget.onCalculatorIndexChanged != null) {
-                      widget.onCalculatorIndexChanged!(calculatorIndex);
-                    }
-                  });
+                  if (newValue != null) {
+                    // Check for null safety
+                    setState(() {
+                      calculatorDropdownValue = newValue;
+                      calculatorIndex =
+                          calculatorDropdownItems.indexOf(newValue);
+                      if (widget.onCalculatorIndexChanged != null) {
+                        widget.onCalculatorIndexChanged!(calculatorIndex);
+                      }
+                    });
+                  }
                 },
               ),
             ),
@@ -71,10 +75,12 @@ class _DropdownCalculatorState extends State<DropdownCalculator> {
               color: Color(0xFFE8E8E8),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: DropdownButton(
+            child: DropdownButton<String>(
               borderRadius: BorderRadius.circular(10),
               itemHeight: 50,
+              hint: Text("Formula"),
               value: formulaDropdownValue,
+              underline: Container(),
               icon: Icon(Icons.keyboard_arrow_down),
               items: formulaDropdownItems.map(
                 (String list) {
