@@ -49,15 +49,11 @@ class StepsButton extends StatelessWidget {
     return Expanded(
       child: MaterialButton(
         onPressed: onPressed,
-        child: Padding(
-          padding:
-              EdgeInsets.only(left: 20), // Set 10 pixels padding to the left
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              text,
-              textAlign: TextAlign.start, // Set text alignment to start (left)
-            ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            text,
+            textAlign: TextAlign.start, // Set text alignment to start (left)
           ),
         ),
         color: buttonColor,
